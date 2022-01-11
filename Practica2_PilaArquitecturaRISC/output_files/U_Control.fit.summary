@@ -1,0 +1,16 @@
+Fitter Status : Successful - Fri Nov 19 23:28:12 2021
+Quartus II 64-Bit Version : 12.1 Build 177 11/07/2012 SJ Web Edition
+Revision Name : U_Control
+Top-level Entity Name : U_Control
+Family : Cyclone IV E
+Device : EP4CE115F29C7
+Timing Models : Final
+Total logic elements : 88 / 114,480 ( < 1 % )
+    Total combinational functions : 72 / 114,480 ( < 1 % )
+    Dedicated logic registers : 63 / 114,480 ( < 1 % )
+Total registers : 63
+Total pins : 107 / 529 ( 20 % )
+Total virtual pins : 0
+Total memory bits : 0 / 3,981,312 ( 0 % )
+Embedded Multiplier 9-bit elements : 0 / 532 ( 0 % )
+Total PLLs : 0 / 4 ( 0 % )

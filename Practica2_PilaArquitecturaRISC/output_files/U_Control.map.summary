@@ -1,0 +1,14 @@
+Analysis & Synthesis Status : Successful - Fri Nov 19 23:27:45 2021
+Quartus II 64-Bit Version : 12.1 Build 177 11/07/2012 SJ Web Edition
+Revision Name : U_Control
+Top-level Entity Name : U_Control
+Family : Cyclone IV E
+Total logic elements : 88
+    Total combinational functions : 72
+    Dedicated logic registers : 63
+Total registers : 63
+Total pins : 107
+Total virtual pins : 0
+Total memory bits : 0
+Embedded Multiplier 9-bit elements : 0
+Total PLLs : 0
