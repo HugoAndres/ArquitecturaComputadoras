@@ -1,0 +1,148 @@
+-- Programa de contador BCD con decodificador 0 a 99,999,999
+-- Elaborado por: U581
+-- Fecha: 9 de diciembre de 2021
+	
+-- -----------------------------------------------
+--      Declaracion de bibliotecas
+-- -----------------------------------------------
+
+Library ieee;
+use ieee.std_logic_1164.all;
+use ieee.std_logic_unsigned.all;
+
+--      Declaracion de entidad
+
+entity contadorbcd is
+	port (
+		clk, clr, start : in std_logic;
+		Displays : out std_logic_vector(55 downto 0)
+	);	
+end entity;
+
+-- ------------------------------------------------
+--     Declaracion de arquitectura
+-- ------------------------------------------------
+
+architecture data of contadorbcd is
+	constant base_1Hz    : Integer := 20000000; 		 -- Constante para 1Hz
+	signal count1Hz    : INTEGER range 0 to base_1Hz;  -- Señal para 1Hz
+			     
+	signal contador : std_logic_vector(3 downto 0) := "0000"; -- señal de conteo
+	signal clk1hz   : std_logic; 
+			  			 			 
+	type state is (cero, mono);             -- Tipo para creacion de estados    
+	signal current_state, next_state: state;    -- señales tipo estado
+			 
+-- ------------------------------------------------
+--     Declaracion de constantes
+-- ------------------------------------------------
+
+-- Declaracion de constantes para el display
+
+	constant zero : std_logic_vector(6 downto 0) := "1000000";     -- Constante para mostrar 0
+	constant uno  : std_logic_vector(6 downto 0) := "1111001";		-- Constante para mostrar 1
+	constant dos  : std_logic_vector(6 downto 0) := "0100100";		-- Constante para mostrar 2
+	constant tres : std_logic_vector(6 downto 0) := "0110000";		-- Constante para mostrar 3
+	constant quat : std_logic_vector(6 downto 0) := "0011001";		-- Constante para mostrar 4
+	constant qint : std_logic_vector(6 downto 0) := "0010010";		-- Constante para mostrar 5
+	constant sixt : std_logic_vector(6 downto 0) := "0000010";		-- Constante para mostrar 6
+	constant sept : std_logic_vector(6 downto 0) := "1111000";		-- Constante para mostrar 7
+	constant octo : std_logic_vector(6 downto 0) := "0000000";		-- Constante para mostrar 8
+	constant nono : std_logic_vector(6 downto 0) := "0010000";		-- Constante para mostrar 9
+	constant OFF  : std_logic_vector(6 downto 0) := "1111111";     -- Display apagado
+			 
+		 
+		    begin
+	-- -------------------------------------------------		 
+	--         Decodificador BCD
+   -- -------------------------------------------------	
+	
+	     	with contador	select
+			   Displays <=  (zero & zero) when "0000",  -- 00
+						       (zero & uno)  when "0001",  -- 01  
+							    (zero & dos)  when "0010",  -- 02
+								 (zero & TRES) when "0011",  -- 03
+								 (zero & quat) when "0100",  -- 04
+								 (zero & qint) when "0101",  -- 05
+								 (zero & sixt) when "0110",  -- 06
+								 (zero & sept) when "0111",  -- 07
+								 (zero & octo) when "1000",  -- 08
+								 (zero & nono) when "1001",  -- 09
+								 (uno & zero)  when "1010",  -- 10
+								 (uno & uno)   when "1011",  -- 11
+								 (uno & dos)   when "1100",  -- 12
+								 (uno & tres)  when "1101",  -- 13
+								 (uno & quat)  when "1110",  -- 14
+								 (uno & qint)  when others;  -- 15
+
+			 
+			 
+	-- -------------------------------------------------
+	--     Proceso de conteo
+	-- -------------------------------------------------
+		        
+states:  process(current_state, start, clk1hz)
+ 
+           variable aux : std_logic_vector(3 downto 0);   -- Variable auxiliar para hacer un conteo
+            
+           begin	
+
+			    if clk1hz'  event and clk1hz = '1' then      -- Ejecucion secuencial con el reloj ralentizado 
+				 
+                case current_state is                     -- Declaracion de estados
+					    
+						 when cero =>                           -- Estado cero
+						  
+						  if start = '0' then                   -- Se presiono start?
+						       next_state <= mono;              -- Si, saltar al estado uno
+							 else
+							    contador <= "0000";              -- No, reiniciar el contador
+								 next_state <= cero;              -- Mantenerce en el estado cero
+						  end if;
+						  
+						  when mono =>
+						   
+					   	  if  contador = "1111" then         -- El contador llego a 15?
+				 	 		      next_state <= cero;            -- Si, regresar al estado cero
+							  else		
+									aux := contador + "0001";      -- No, incrementa una vez el contador
+									contador <= aux;               -- Asignar la variable auxiliar a la señal del contador
+							  end if;
+														  
+						  when others =>
+						 	 
+                end case;	
+	        			 
+			    end if;	
+				
+			end process;			
+-- -----------------------------------------------------------------
+--        Proceso para saltar de estado en estado
+-- -----------------------------------------------------------------			  
+			  
+Clock:      process(next_state, count1Hz, clk, clk1hz, clr)
+              
+             begin
+				 
+					 if clr = '0' then
+					 
+						 current_state <= cero;
+						 
+					 elsif (clk' event and clk = '1') then
+						 
+						  if count1Hz < base_1Hz then 
+					             count1Hz <= count1Hz+1;
+				        else
+								 	 current_state <= next_state;
+									 clk1hz <= not clk1hz;
+									 count1Hz <= 0;
+				        end if;	
+									 
+					 end if;
+
+            end process;
+			  
+			  
+		 end data;
+			  
+		 

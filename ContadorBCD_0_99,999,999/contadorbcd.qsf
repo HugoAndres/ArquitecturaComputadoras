@@ -1,0 +1,116 @@
+# -------------------------------------------------------------------------- #
+#
+# Copyright (C) 1991-2012 Altera Corporation
+# Your use of Altera Corporation's design tools, logic functions 
+# and other software and tools, and its AMPP partner logic 
+# functions, and any output files from any of the foregoing 
+# (including device programming or simulation files), and any 
+# associated documentation or information are expressly subject 
+# to the terms and conditions of the Altera Program License 
+# Subscription Agreement, Altera MegaCore Function License 
+# Agreement, or other applicable license agreement, including, 
+# without limitation, that your use is for the sole purpose of 
+# programming logic devices manufactured by Altera and sold by 
+# Altera or its authorized distributors.  Please refer to the 
+# applicable agreement for further details.
+#
+# -------------------------------------------------------------------------- #
+#
+# Quartus II 64-Bit
+# Version 12.1 Build 177 11/07/2012 SJ Web Edition
+# Date created = 12:16:18  December 08, 2021
+#
+# -------------------------------------------------------------------------- #
+#
+# Notes:
+#
+# 1) The default values for assignments are stored in the file:
+#		contadorbcd_assignment_defaults.qdf
+#    If this file doesn't exist, see file:
+#		assignment_defaults.qdf
+#
+# 2) Altera recommends that you do not modify this file. This
+#    file is updated automatically by the Quartus II software
+#    and any changes you make may be lost or overwritten.
+#
+# -------------------------------------------------------------------------- #
+
+
+set_global_assignment -name FAMILY "Cyclone IV E"
+set_global_assignment -name DEVICE EP4CE115F29C7
+set_global_assignment -name TOP_LEVEL_ENTITY contadorbcd
+set_global_assignment -name ORIGINAL_QUARTUS_VERSION 12.1
+set_global_assignment -name PROJECT_CREATION_TIME_DATE "12:16:18  DECEMBER 08, 2021"
+set_global_assignment -name LAST_QUARTUS_VERSION 12.1
+set_global_assignment -name PROJECT_OUTPUT_DIRECTORY output_files
+set_global_assignment -name MIN_CORE_JUNCTION_TEMP 0
+set_global_assignment -name MAX_CORE_JUNCTION_TEMP 85
+set_global_assignment -name ERROR_CHECK_FREQUENCY_DIVISOR 1
+set_global_assignment -name NOMINAL_CORE_SUPPLY_VOLTAGE 1.2V
+set_global_assignment -name EDA_SIMULATION_TOOL "ModelSim-Altera (VHDL)"
+set_global_assignment -name EDA_OUTPUT_DATA_FORMAT VHDL -section_id eda_simulation
+set_global_assignment -name VHDL_FILE contadorbcd.vhd
+set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
+set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
+set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
+set_global_assignment -name STRATIX_DEVICE_IO_STANDARD "2.5 V"
+set_location_assignment PIN_Y19 -to DisplayUM[6]
+set_location_assignment PIN_G18 -to DisplayU[0]
+set_location_assignment PIN_F22 -to DisplayU[1]
+set_location_assignment PIN_E17 -to DisplayU[2]
+set_location_assignment PIN_L26 -to DisplayU[3]
+set_location_assignment PIN_L25 -to DisplayU[4]
+set_location_assignment PIN_J22 -to DisplayU[5]
+set_location_assignment PIN_H22 -to DisplayU[6]
+set_location_assignment PIN_M24 -to DisplayD[0]
+set_location_assignment PIN_Y22 -to DisplayD[1]
+set_location_assignment PIN_W21 -to DisplayD[2]
+set_location_assignment PIN_W22 -to DisplayD[3]
+set_location_assignment PIN_W25 -to DisplayD[4]
+set_location_assignment PIN_U23 -to DisplayD[5]
+set_location_assignment PIN_U24 -to DisplayD[6]
+set_location_assignment PIN_AA25 -to DisplayC[0]
+set_location_assignment PIN_AA26 -to DisplayC[1]
+set_location_assignment PIN_Y25 -to DisplayC[2]
+set_location_assignment PIN_W26 -to DisplayC[3]
+set_location_assignment PIN_Y26 -to DisplayC[4]
+set_location_assignment PIN_W27 -to DisplayC[5]
+set_location_assignment PIN_W28 -to DisplayC[6]
+set_location_assignment PIN_V21 -to DisplayUM[0]
+set_location_assignment PIN_U21 -to DisplayUM[1]
+set_location_assignment PIN_AB20 -to DisplayUM[2]
+set_location_assignment PIN_AA21 -to DisplayUM[3]
+set_location_assignment PIN_AD24 -to DisplayUM[4]
+set_location_assignment PIN_AF23 -to DisplayUM[5]
+set_location_assignment PIN_AB19 -to DisplayDM[0]
+set_location_assignment PIN_AA19 -to DisplayDM[1]
+set_location_assignment PIN_AG21 -to DisplayDM[2]
+set_location_assignment PIN_AH21 -to DisplayDM[3]
+set_location_assignment PIN_AE19 -to DisplayDM[4]
+set_location_assignment PIN_AF19 -to DisplayDM[5]
+set_location_assignment PIN_AE18 -to DisplayDM[6]
+set_location_assignment PIN_AD18 -to DisplayCM[0]
+set_location_assignment PIN_AC18 -to DisplayCM[1]
+set_location_assignment PIN_AB18 -to DisplayCM[2]
+set_location_assignment PIN_AH19 -to DisplayCM[3]
+set_location_assignment PIN_AG19 -to DisplayCM[4]
+set_location_assignment PIN_AF18 -to DisplayCM[5]
+set_location_assignment PIN_AH18 -to DisplayCM[6]
+set_location_assignment PIN_AA17 -to DisplayUML[0]
+set_location_assignment PIN_AB16 -to DisplayUML[1]
+set_location_assignment PIN_AA16 -to DisplayUML[2]
+set_location_assignment PIN_AB17 -to DisplayUML[3]
+set_location_assignment PIN_AB15 -to DisplayUML[4]
+set_location_assignment PIN_AA15 -to DisplayUML[5]
+set_location_assignment PIN_AC17 -to DisplayUML[6]
+set_location_assignment PIN_AD17 -to DisplayDML[0]
+set_location_assignment PIN_AE17 -to DisplayDML[1]
+set_location_assignment PIN_AG17 -to DisplayDML[2]
+set_location_assignment PIN_AH17 -to DisplayDML[3]
+set_location_assignment PIN_AF17 -to DisplayDML[4]
+set_location_assignment PIN_AG18 -to DisplayDML[5]
+set_location_assignment PIN_AA14 -to DisplayDML[6]
+set_location_assignment PIN_M23 -to clr
+set_location_assignment PIN_M21 -to start
+set_location_assignment PIN_Y2 -to clk
+set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
