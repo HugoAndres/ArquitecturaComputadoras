@@ -1,0 +1,14 @@
+Analysis & Synthesis Status : Successful - Wed Dec 15 19:00:51 2021
+Quartus II 64-Bit Version : 12.1 Build 177 11/07/2012 SJ Web Edition
+Revision Name : VGA_TEST
+Top-level Entity Name : VGA_TEST
+Family : Cyclone IV E
+Total logic elements : 238
+    Total combinational functions : 238
+    Dedicated logic registers : 71
+Total registers : 71
+Total pins : 36
+Total virtual pins : 0
+Total memory bits : 0
+Embedded Multiplier 9-bit elements : 0
+Total PLLs : 1
