@@ -1,0 +1,6 @@
+<?xml version="1.0" ?>
+<LOG_ROOT>
+	<PROJECT NAME="U_Control">
+		<CBX_INST_ENTRY INSTANCE_NAME="|U_Control|lpm_mult:Mult0" CBX_FILE_NAME="mult_73t.tdf"/>
+	</PROJECT>
+</LOG_ROOT>
